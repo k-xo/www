@@ -7,7 +7,7 @@ What this post is about, is how I found a bug in the signature generation proces
 Ethereum signature validation involves several steps that ensure a message or transaction was signed by the owner of a specific Ethereum address. Here's a high-level overview of how it works:
 
 - **Hashing:**
-  The first step is to hash the message or transaction data using Keccak-256, which gives a unique 32-byte hash. This is usually also serialized in the case of a transaction, and for messages a prefix is attached and it's formatted in a specific way.
+  The first step is to hash the message or transaction data using Keccak-256 this is usually also serialized beforehand in the case of a transaction, and for messages a prefix is attached and it's formatted in a specific way.
 
 - **Signing the Hash:**
   Next, the hash gets signed with the private key linked to the Ethereum address, producing a signature with r, s, and v components.
