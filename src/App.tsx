@@ -38,16 +38,16 @@ const PostPage = ({ posts }: { posts: Post[] }) => {
   if (!post) return <div>Post not found</div>;
 
   return (
-    <article className="mb-4">
+    <article className="mb-4 px-4">
       <div className="flex justify-between items-center mb-4">
-        <h1 className="text-2xl md:text-3xl font-medium">{post.title}</h1>
+        <h1 className="text-3xl font-medium">{post.title}</h1>
         <Link to="/" className="text-sm text-gray-500 hover:text-gray-700">
           home
         </Link>
       </div>
       <p className="text-sm text-gray-500 mb-4">{post.date}</p>
       <ReactMarkdown
-        className="text-xs md:text-sm max-w-none"
+        className="text-xs max-w-none"
         components={{
           code({ className, children, ...props }) {
             const match = /language-(\w+)/.exec(className || "");
@@ -67,6 +67,7 @@ const PostPage = ({ posts }: { posts: Post[] }) => {
               </code>
             );
           },
+          // Add more custom components if needed
           h1: ({ ...props }) => (
             <h1 className="text-2xl font-medium mt-6 mb-4" {...props} />
           ),
@@ -177,7 +178,7 @@ const App = () => {
 
   return (
     <Router>
-      <div className="container mx-auto px-4 pt-8 pb-2 max-w-full md:max-w-[900px] tracking-wider h-screen overflow-x-hidden md:overflow-visible">
+      <div className="mx-auto px-4 pt-8 pb-2 md:max-w-[900px] max-w-full tracking-wider h-screen overflow-x-hidden md:overflow-visible md:text-justify">
         <header className="mb-8" onClick={() => (window.location.href = "/")}>
           <div className="cursor-pointer">
             <h1 className="text-xl font-medium">k-xo 🏄🏾‍♂️</h1>
@@ -187,15 +188,15 @@ const App = () => {
           </div>
           <hr />
         </header>
-        <div className="flex flex-wrap md:flex-nowrap md:space-x-8">
+        <div className="flex md:flex-nowrap flex-wrap md:space-x-8">
           <SidePanel />
-          <main className="flex-grow max-w-full">
+          <main className="flex-grow mx-auto max-w-full sm:px-4">
             <Routes>
               <Route
                 path="/"
                 element={
                   <>
-                    <section id="home" className="mb-4 -mt-2">
+                    <section id="home" className="mb-4 -mt-2 px-4 sm:px-0">
                       <h2 className="text-xl font-medium">whoami</h2>
                       <p className="text-sm text-gray-500 pb-2 pt-2">
                         hi --- i'm kassim, i'm a programmer i work at{" "}
