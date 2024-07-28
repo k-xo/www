@@ -35,7 +35,7 @@ This was strange, so I tested this out a few more times, and it would periodical
 
 Dreary-eyed and frustrated, I went to bed to take a look with clearer eyes the next day. The following morning, even with the small inspiration at the end of the previous day, wasn't any better, after a walk, and some more time banging my head against the wall, I wasn't any closer to figuring out what the bug was. I decided to revisit my assumptions, what if the signature was valid, from a cryptographic perspective, but it wasn't from an ethereum perspective? This led me to a deep rabbit hole on how ethereum signatures work, and how they are validated. One thing I didn't mention in the previous section, and what led to the solution, is the following:
 
-<img src="../public/elliptic.png" alt="Elliptic Curve Cryptography" width="400" height="300" />
+<img src="/elliptic.png" alt="Elliptic Curve Cryptography" width="400" height="300" />
 <br/>
 
 Ethereum uses ECDSA signatures, which are based on the secp256k1 curve. In this signature scheme a signature consists of two values, r and s, and on the elliptic curve used for a given a r value , there are two possible s values that are valid. Specifically, if (r, s) is a valid signature, then (r, -s) is also a valid signature. Which basically means there are 2 valid signatures for any signed message / transaction.
