@@ -47,7 +47,7 @@ So after 2 days of incessant debugging, and banging my head against the wall, we
 let (sign, recovery_id) = if let Some(normalized_signature) = signature.normalize_s() {
   (normalized_signature, recovery_id ^ 1)
 } else {
-  (signature, recover_id)
+  (signature, recovery_id)
 }
 ```
 
