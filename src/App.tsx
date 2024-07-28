@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import rehypeRaw from "rehype-raw";
 
 interface Post {
   id: string;
@@ -47,6 +48,7 @@ const PostPage = ({ posts }: { posts: Post[] }) => {
       </div>
       <p className="text-sm text-gray-500 mb-4">{post.date}</p>
       <ReactMarkdown
+        rehypePlugins={[rehypeRaw]}
         className="text-xs max-w-none"
         components={{
           code({ className, children, ...props }) {
@@ -83,7 +85,10 @@ const PostPage = ({ posts }: { posts: Post[] }) => {
           ),
           li: ({ ...props }) => <li className="mb-1" {...props} />,
           a: ({ ...props }) => (
-            <a className="text-black hover:underline" {...props} />
+            <a
+              className="text-black italic hover:bg-gray-300 bg-gray-200 py-[0.8] px-1"
+              {...props}
+            />
           ),
         }}
       >
