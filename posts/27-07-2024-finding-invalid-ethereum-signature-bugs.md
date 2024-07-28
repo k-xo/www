@@ -37,8 +37,10 @@ Dreary-eyed and frustrated, I went to bed to take a look with clearer eyes the n
 
 Ethereum uses ECDSA signatures, which are based on the secp256k1 curve. In this signature scheme a signature consists of two values, r and s, and on the elliptic curve used for a given a r value , there are two possible s values that are valid. Specifically, if (r, s) is a valid signature, then (r, -s) is also a valid signature. Which basically means there are 2 valid signatures for any signed message / transaction.
 
+<p align="center">
 <img src="/elliptic.png" alt="Elliptic Curve Cryptography" width="400" height="300" />
 <br/>
+</p>
 
 Now obviously this can't work for blockchains as it allows for what is called "signature malleability", in short if there are 2 valid signatures for a given message, there could be scenario where if a transaction is signed and broadcasted, an attacker can modify the signature to create a new valid transaction. This new transaction can be replayed on the network, leading to unintended consequences or unauthorized transactions being executed. To get around this, ethereum only accepts one valid signature, where the value of s must be in the lower half of the curve's order. So when a signature is generated, it is "normalized" to ensure this. The v value also plays a role in this process, it acts as a recovery id that helps in determining the correct public key from the signature, it can be either 27 or 28 (sometimes 0 or 1), and it indicates whether the y-coordinate of the elliptic curve point is even or odd. This is important because there are two possible points with the same 𝑥-coordinate. The 'v' value helps to choose the correct one, ensuring that Ethereum recovers the right public key and keeps the signature valid.
 
