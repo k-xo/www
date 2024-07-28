@@ -40,14 +40,14 @@ const PostPage = ({ posts }: { posts: Post[] }) => {
   return (
     <article className="mb-4">
       <div className="flex justify-between items-center mb-4">
-        <h1 className="text-3xl font-medium">{post.title}</h1>
+        <h1 className="text-2xl md:text-3xl font-medium">{post.title}</h1>
         <Link to="/" className="text-sm text-gray-500 hover:text-gray-700">
           home
         </Link>
       </div>
       <p className="text-sm text-gray-500 mb-4">{post.date}</p>
       <ReactMarkdown
-        className="text-xs max-w-none"
+        className="text-xs md:text-sm max-w-none"
         components={{
           code({ className, children, ...props }) {
             const match = /language-(\w+)/.exec(className || "");
@@ -67,7 +67,6 @@ const PostPage = ({ posts }: { posts: Post[] }) => {
               </code>
             );
           },
-          // Add more custom components if needed
           h1: ({ ...props }) => (
             <h1 className="text-2xl font-medium mt-6 mb-4" {...props} />
           ),
@@ -178,7 +177,7 @@ const App = () => {
 
   return (
     <Router>
-      <div className="container mx-auto  px-4 pt-8 pb-2 max-w-[900px] tracking-wider h-screen">
+      <div className="container mx-auto px-4 pt-8 pb-2 max-w-full md:max-w-[900px] tracking-wider h-screen overflow-x-hidden">
         <header className="mb-8" onClick={() => (window.location.href = "/")}>
           <div className="cursor-pointer">
             <h1 className="text-xl font-medium">k-xo 🏄🏾‍♂️</h1>
@@ -188,9 +187,9 @@ const App = () => {
           </div>
           <hr />
         </header>
-        <div className="flex md:space-x-8">
+        <div className="flex flex-wrap md:space-x-8">
           <SidePanel />
-          <main className="flex-grow">
+          <main className="flex-grow max-w-full">
             <Routes>
               <Route
                 path="/"
