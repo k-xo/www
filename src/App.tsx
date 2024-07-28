@@ -38,7 +38,7 @@ const PostPage = ({ posts }: { posts: Post[] }) => {
   if (!post) return <div>Post not found</div>;
 
   return (
-    <article className="mb-4 px-4">
+    <article className="mb-4">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-3xl font-medium">{post.title}</h1>
         <Link to="/" className="text-sm text-gray-500 hover:text-gray-700">
