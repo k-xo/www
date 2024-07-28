@@ -177,7 +177,7 @@ const App = () => {
 
   return (
     <Router>
-      <div className="container mx-auto px-4 pt-8 pb-2 max-w-full md:max-w-[900px] tracking-wider h-screen overflow-x-hidden">
+      <div className="container mx-auto px-4 pt-8 pb-2 max-w-full md:max-w-[900px] tracking-wider h-screen overflow-x-hidden md:overflow-visible">
         <header className="mb-8" onClick={() => (window.location.href = "/")}>
           <div className="cursor-pointer">
             <h1 className="text-xl font-medium">k-xo 🏄🏾‍♂️</h1>
@@ -187,7 +187,7 @@ const App = () => {
           </div>
           <hr />
         </header>
-        <div className="flex flex-wrap md:space-x-8">
+        <div className="flex flex-wrap md:flex-nowrap md:space-x-8">
           <SidePanel />
           <main className="flex-grow max-w-full">
             <Routes>
