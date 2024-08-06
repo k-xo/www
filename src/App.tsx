@@ -130,6 +130,15 @@ const SidePanel = () => (
             [alkassimk@gmail.com]
           </a>
         </li>
+        <li>
+          <a
+            href="https://www.linkedin.com/in/k-xo/"
+            className="font-medium text-black text-xs"
+            target="_blank"
+          >
+            [linkedin.com/in/k-xo]
+          </a>
+        </li>
       </ul>
     </div>
   </div>
