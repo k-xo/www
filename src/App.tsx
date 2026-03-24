@@ -222,9 +222,7 @@ const App = () => {
                           [0xpass]
                         </a>{" "}
                         on distributed key management. in my free time i like
-                        learning about ai/ml, & distributed systems. i like rust
-                        & js/ts are goated & i am in the process of being
-                        zig-pilled.
+                        learning about ai/ml, & distributed systems.
                         <br />
                         <br />
                         i'm always interested in learning new things & meeting
